@@ -32,10 +32,16 @@ function onLoginSumit(event) {
 // loginForm.addEventListener("submit", onLoginSumit);
 
 $("#login-form").on("submit", function(event) {
+    //이벤트 막음
     event.preventDefault();
+
+    //제이쿼리 객체를 변수에 넣어서 할당 ( prop의 값을 들고옴 )
     const username = $("#login-form input").prop("value");
+    // greeting의 text값을 setting
     $("#greeting").text(`반갑습니다. ${username}님`);
 
+    //login-form의 클래스를 추가
     $("#login-form").addClass("hidden");
+    //memo-form의 클래스를 제거
     $("#memo-form").removeClass("hidden");
 });

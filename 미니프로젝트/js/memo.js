@@ -40,10 +40,16 @@ function memoFormSubmit (event) {
 //memoForm.addEventListener("submit", memoFormSubmit);
 
 $("#memo-form").on("submit", function(event) {
-    event.preventDefault();
+    event.preventDefault(); // 이벤트 막음
 
+    // value값과 getClock()값을 가져와서 memo 변수에 문자열로 할당
     const memo =  $("#memo-form input:first").prop("value") + "<br>" + getClock() ;
-    
+
+    // div태그를 생성한 후 html로 memo의 문자열을 추가
+    // (html로 넣게되면 문자열로 들어간 태그(<br>)도 html 태그로 인식)
+    // memo-board에 추가
     $("#memo-board").append($("<div>").html(memo));
+    // $()사용하면 전체의 요소를 찾기때문에 :first를 이용하여 필터링.
+    // prop을 이용하여 value값 을 "" 으로 할당 
     $("#memo-form input:first").prop("value","");
 });

@@ -11,4 +11,5 @@ const choseImage = images[ Math.floor(Math.random()*images.length)];
 //bodyBackground.style.background = `url(./img/${choseImage}) no-repeat fixed`;//이미지 파일이름 추가
 // stlyle = " background: url="./img/0.jpg"; "
 
+//body를 제이쿼리 객체로 들고온 후, css 중 background 스타일 속성값을 수정(setting)
 $("body").css("background", `url(./img/${choseImage}) no-repeat fixed`);

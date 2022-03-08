@@ -53,8 +53,10 @@ function todoDelete(event) {
 }
 
 $("#todo-button").on("click", function(){
+    // type이 checkbox인 input 요소인 제이쿼리를 생성한후, 변수에 할당
     const checkbox = $("<input>").prop("type","checkbox");
-    checkbox.on("click", function(event){
+    // 생성한 변수(제이쿼리객체)에 제이쿼리메소드 on을 사용하여 이벤트 추가
+    checkbox.on("click", function(event){ // 이때 익명함수로 추가
         if(event.target.checked) {
             checkbox.parent().css("color","lightgray");
         }
@@ -63,12 +65,19 @@ $("#todo-button").on("click", function(){
         }
     });
 
+    // text값 "X"가진 button요소인 제이쿼리를 생성한 후, 변수에 할당
     const button = $("<button>").text("X");
-    button.on("click",function(event){
-        event.target.parentNode.remove();
+    // 생성한 변수(제이쿼리객체)에 제이쿼리메소드 on을 사용하여 이벤트 추가
+    button.on("click",function(){
+        //event.target 대신에 
+        // 제이쿼리객체인 this를 통해서 현재 실행된 DOM가져올수있다.
+        $(this).parent().remove();
     });
 
+    // 투두 리스드에 들어갈 내용을 input의 value값을 prop으로 받아옴
     const todo = $("#memo-form input:first").prop("value");
 
+    // $("<li>")를 사용하여 새로운 li 요소를 생성한후 append를 이용하여 자식요소를 추가
+    // todo-board에 append를 이용하여 추가
     $("#todo-board").append( $("<li>").append(checkbox).append(todo).append(button) );
 });
