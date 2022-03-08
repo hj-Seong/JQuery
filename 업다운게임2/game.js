@@ -17,6 +17,17 @@ $( function () {
     //form요소는 submit 이벤트를 이용하여 함수를 실행
     */
     $("#start_button").on("click", function() {
+        // const r = Math.floor( Math.random()*256 ); 0~225
+        // rgb( r, g, b );
+        // start_button의 css의 backgroundColor 값 랜덤하게 바꾸기
+        const r = Math.floor( Math.random()*256 );
+        const g = Math.floor( Math.random()*256 );
+        const b = Math.floor( Math.random()*256 );
+
+        $("#start_button").css("backgroundColor", `rgb(${r},${g},${b})`)
+        // 메소드나 함수로 전달해 주는 것은 항상 값(문자열, 숫자, boolean)
+        // 변수를 넣으면 변수의 값, 함수를 넣으면 함수의 결과 값이 전달
+
         ran = Math.floor( Math.random()*100 + 1 ); //랜덤한 수 생성
         count = 1;
         // 입력받는 form(submit)
